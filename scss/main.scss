@@ -66,6 +66,10 @@ $headings-color: inherit !default;
 
 //== Scaffolding
 $text-color: $black !default;
+$link-color: rgba(255,255,255,0.8) !default;
+$link-hover-color: $white !default;
+$link-hover-decoration: underline !default;
+
 
 //== Panels
 $panel-border-radius: 5px;
