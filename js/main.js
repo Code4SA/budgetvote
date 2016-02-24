@@ -168,6 +168,7 @@ $(document).ready(function(){
     }
 
     $.post("http://backchat.code4sa.org/submit/budget2016/", {processData: false, success: sendEmail, data: JSON.stringify({IncreasesOrder: increasesOrder, DecreasesOrder: decreasesOrder, ProjectsOrder: projectsOrder, UserEmail: userEmail})});
+    ga('send', 'event', 'vote', 'submission');
 
   });  
 
