@@ -1,0 +1,511 @@
+@charset "utf-8";
+
+// Bootstrap variable overrides
+
+//== Colors
+
+$ibp-blue: #0087d1;
+$ibp-orange: #ff7a22;
+
+$white: #fff;
+$black: #000;
+
+$orange: #ff7a22;
+$blue: #3399cc;
+$green: #66cc66;
+$red: #cc3333;
+$yellow: #cccc00;
+$teal: #009966;
+$bright-green: #99cc33;
+$bright-yellow: #ffff00;
+
+$blue-light: lighten($blue, 20%);
+
+$gray-base: #000 !default;
+$gray-darker: lighten($gray-base, 13.5%) !default; // #222
+$gray-dark: lighten($gray-base, 20%) !default; // #333
+$gray: lighten($gray-base, 33.5%) !default; // #555
+$gray-light: lighten($gray-base, 46.7%) !default; // #777
+$gray-lighter: lighten($gray-base, 93.5%) !default; // #eee
+
+$brand-primary: darken(#428bca, 6.5%) !default; // #337ab7
+$brand-success: #5cb85c !default;
+$brand-info: #5bc0de !default;
+$brand-warning: #f0ad4e !default;
+$brand-danger: #d9534f !default;
+
+//== Typography
+
+@import url(https://fonts.googleapis.com/css?family=Rubik:500,700,900);
+
+$font-family-sans-serif: "Rubik", Helvetica, Arial, sans-serif !default;
+
+$font-family-base: $font-family-sans-serif !default;
+
+$font-size-base: 14px !default;
+$font-size-large: ceil(($font-size-base * 1.25)) !default; // ~18px
+$font-size-small: ceil(($font-size-base * 0.85)) !default; // ~12px
+
+$font-size-h1: floor(($font-size-base * 2.6)) !default; // ~36px
+$font-size-h2: floor(($font-size-base * 2)) !default; // ~30px
+$font-size-h3: ceil(($font-size-base * 1.4)) !default; // ~24px
+$font-size-h4: ceil(($font-size-base * 1.25)) !default; // ~18px
+$font-size-h5: $font-size-base !default;
+$font-size-h6: ceil(($font-size-base * 0.85)) !default; // ~12px
+
+//** Unit-less `line-height` for use in components like buttons.
+$line-height-base: 1.8 !default; // 20/14
+//** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
+$line-height-computed: floor(($font-size-base * $line-height-base)) !default; // ~20px
+
+//** By default, this inherits from the `<body>`.
+$headings-font-family: inherit !default;
+$headings-font-weight: 500 !default;
+$headings-line-height: 1.2 !default;
+$headings-color: inherit !default;
+
+//== Scaffolding
+$text-color: $black !default;
+$link-color: rgba(255,255,255,0.8) !default;
+$link-hover-color: $white !default;
+$link-hover-decoration: underline !default;
+
+
+//== Panels
+$panel-border-radius: 5px;
+
+//== Buttons
+$btn-font-weight: 700;
+
+$btn-default-color: $white;
+$btn-default-bg: rgba(0,0,0,0.2);
+$btn-default-border: transparent;
+
+//== Jumbotron
+
+$jumbotron-padding: 20px !default;
+$jumbotron-color: $white;
+$jumbotron-bg: $orange;
+$jumbotron-heading-color: inherit !default;
+$jumbotron-font-size: ceil(($font-size-base * 1.3)) !default;
+$jumbotron-heading-font-size: ceil(($font-size-base * 3.6)) !default;
+
+//=====
+
+// Import Bootstrap SASS
+@import "../bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+
+//=====
+
+// Custom CSS
+
+//== Mixins
+@mixin box-shadow($depth) {
+	-webkit-box-shadow: $depth $depth 0px 0px rgba(0,0,0,0.1);
+	-moz-box-shadow: $depth $depth 0px 0px rgba(0,0,0,0.1);
+	box-shadow: $depth $depth 0px 0px rgba(0,0,0,0.1);
+}
+
+@mixin unselectable() {
+	user-select: none;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	-o-user-select: none;
+}
+
+//== Scaffolding
+
+strong {
+	font-weight: 900;
+}
+
+small{
+	color: inherit;
+}
+
+//== Buttons
+
+.btn-default {
+	@include unselectable;
+	text-transform: uppercase;
+	border-radius: 20px;
+	padding: 10px 15px;
+	line-height: 100%;
+	transition: all 0.2s ease;
+	i {
+		color: $black;
+		color: rgba(0,0,0,0.4);
+		margin-left: 5px;
+	}
+}
+
+.btn-selected, .btn-default:hover {
+	background: $white !important;
+	color: $black !important;
+	i{
+		color: $ibp-blue;
+	}
+}
+.btn-agree.btn-selected i, .btn-agree:hover i{
+	color: $green;
+}
+.btn-disagree.btn-selected i, .btn-disagree:hover i{
+	color: $red;
+}
+
+//== Lists
+.list-group {
+	margin-bottom: 0;
+}
+
+//== Jumbotron
+
+.jumbotron {
+
+	background-image: url('../img/bg-lined-paper.png');
+	text-align: center;
+	margin: 0;
+
+	h1 {
+		text-transform: uppercase;
+		font-weight: 900;
+		letter-spacing: 1px;
+		text-shadow: 1px 1px darken($jumbotron-bg, 20%), 
+								 2px 2px darken($jumbotron-bg, 20%), 
+								 3px 3px darken($jumbotron-bg, 20%), 
+								 4px 4px darken($jumbotron-bg, 20%), 
+								 5px 5px darken($jumbotron-bg, 20%), 
+								 6px 6px darken($jumbotron-bg, 20%);
+	}
+
+	h3 {
+		color: lighten($orange, 30%);
+		strong{
+			color: $white;
+		}
+	}
+
+}
+
+#intro {
+	p {
+		text-align: left;
+		font-size: 12px;
+	}
+	img#the-minister {
+		max-height: 150px;
+		margin-bottom: 5px;
+	}
+}
+
+//== Sections
+
+.section {
+	color: rgba(0,0,0,0.8);
+	padding: 30px 0;
+	border-top: solid 3px rgba(0,0,0,0.1);
+	h2, h3 {
+		margin-top: 0;
+		padding-bottom: 10px;
+		margin-bottom: 15px;
+		color: $white;
+		border-bottom: solid 1px rgba(0,0,0,0.2);
+		strong{ 
+			color: $black;
+			color: rgba(0,0,0,0.6);
+		}
+	}
+	.subsection {
+		border: solid 1px rgba(0,0,0,0.2);
+	}
+
+	h3 {
+		border-bottom: solid 1px rgba(0,0,0,0.2);
+	}
+
+	.question-number {
+		margin: 0 0 10px 0;
+		padding: 5px;
+		background-color: $black;
+		background-color: rgba(0,0,0,0.3);
+		color: $white;
+		line-height: 100%;
+		font-size: 11px;
+		font-weight: bold;
+		text-transform: uppercase;
+		display: inline-block;
+	}
+
+}
+
+// Intro
+#intro, #intro p {
+	text-align: center;
+}
+
+// Instructions
+
+.section#instructions {
+	background-color: $blue;
+  text-align: center;
+  img {
+    display: inline;
+  }
+  h3 {
+    border: 0;
+    line-height: 150%;
+  }
+}
+
+@media only screen and (min-width : 992px) {
+  .section#instructions h3 {
+    padding-top: 20px;
+  }
+}
+
+// Subsections
+
+.subsection {
+	padding: 20px;
+	border-radius: 5px;
+	@include box-shadow(5px);
+}
+
+// Orderered list group
+ol.list-group {
+
+  counter-reset:li;
+  margin-left:0;
+  padding-left:0;
+
+	& > li {
+	    position: relative;
+	    margin: 0 0 6px 2em;
+	    list-style: none;
+	}
+	& > li:before {
+	    content: "#" counter(li);
+	    counter-increment: li;
+	    position: absolute;
+	    left: -36px;
+	    -moz-box-sizing: border-box;
+	    -webkit-box-sizing: border-box;
+	    box-sizing: border-box;
+	    width:2em;
+	    margin-right: 12px;
+	    padding: 4px;
+	    color: $black;
+	    color: rgba(0,0,0,0.3);
+	    font-weight:bold;
+	    text-align:center;
+	}
+
+	& > li.sortable-chosen:before {
+		content: "";
+	}
+
+}
+
+// Increases and decreases
+
+.section#increases {
+	background-color: $teal;
+	.subsection {
+	background-color: $teal;
+	}
+	.list-group i {
+		color: darken($green,20%);
+	}
+}
+
+.section#decreases{
+	background-color: $red;
+	.subsection {
+	background-color: $red;
+	}
+	.list-group i {
+		color: darken($red,20%);
+	}
+}
+
+.list-group {
+	border-radius: 0;
+	li {
+		border: 0;
+		cursor: move;
+		margin: 4px 0;
+		border-radius: 5px;
+		background: rgba(255,255,255,0.4);
+		&:hover{
+			background-color: $white;
+		}
+	}
+	.rank {
+		font-size: 16px;
+		font-weight: bold;
+		line-height: 24px;
+		margin-right: 20px;
+		color: $white;
+		display: inline-block;
+		width: 24px;
+		height: 24px;
+		background: rgba(0,0,0,0.2);
+		border-radius: 50%;
+		overflow: hidden;
+		text-align: center;
+	}
+	.value {
+		font-size: 24px;
+		display: inline-block;
+	}
+}
+
+// New projects
+.section#new-projects {
+	background-color: $bright-green;
+	.subsection{
+		background-color: $bright-green;
+	}
+	.list-group i {
+		color: darken($bright-green,20%);
+	}
+}
+
+// Submit
+.section#submit {
+	background-color: $blue;
+  .subsection {
+    text-align: center;
+  }
+	.question {
+		margin-bottom: 10px; 
+		.btn { 
+			margin-right: 5px;
+      margin-top: 10px;
+		}
+	}
+  #parliament-submission {
+    display: none;
+    border: solid 1px rgba(0,0,0,0.2);
+    background: rgba(255,255,255,0.2);
+    transition: all 0.2s ease;
+    .email-label {
+      padding: 10px;
+    }
+    margin-bottom: 10px;
+  }
+  #parliament-email {
+    border-top: solid 1px rgba(0,0,0,0.4);
+    background-color: $white;
+    background-color: rgba(255,255,255,0.5);
+    color: darken($blue,20%);
+    padding: 20px;
+    max-height: 200px;
+    overflow: auto;
+    text-align: left;
+    p {
+      text-align: left;
+      padding: 0;
+    }
+  }
+  #submit-button {
+    display: none;
+    text-align: center;
+    margin-top: 15px;
+    a {
+      font-size: 16px;
+      padding: 15px;
+      width: 200px;
+      border-radius: 40px;
+    }
+  }
+  #btn-submit.submitted {
+    pointer-events: none;
+    cursor: default;
+    background: $white;
+    color: $black;
+    i {
+      color: $green;
+    }
+  }
+
+}
+
+// Footer
+.footer {
+	background-color: $white;
+	color: $gray;
+	font-size: 12px;
+	.credits {
+		img {
+		max-height: 40px;
+		padding: 5px;
+		margin: 5px;
+		background-color: $white;
+		border-radius: 5px;
+		}
+	}
+}
+
+//= Rank box
+
+.rank-box {
+
+	height: 100%;
+	width: 100%;
+
+	.rank-scale {
+		width: 55px;
+		padding-right: 10px;
+	}
+
+	.scale {
+		height: 95%;
+		.scale-line {
+			height: 100%;
+			background: url('../img/vertical-dotted-white-line.png') center repeat-y;
+		}
+		.scale-top, .scale-bottom{
+			font-size: 12px;
+			line-height: 14px;
+			text-transform: uppercase;
+			text-align: center;
+			color: $white;
+			font-weight: bold;
+		}
+	}
+
+	.loading {
+		text-align: center;
+		color: $white;
+		font-size: 200%;
+	}
+
+}
+
+//= Tooltips
+.tooltip-inner {
+  line-height: 120%;
+}
+
+//= Helper classes
+
+.highlight {
+	border-bottom: solid 1px $white;
+	border-bottom: solid 1px rgba(255,255,255,0.5);
+	-webkit-box-shadow: inset 0px -2px 0px 0px rgba(255,255,255,0.5);
+	-moz-box-shadow: inset 0px -2px 0px 0px rgba(255,255,255,0.5);
+	box-shadow: inset 0px -2px 0px 0px rgba(255,255,255,0.5);
+  &:hover {
+    border-bottom: solid 1px $white;
+    border-bottom: solid 1px rgba(255,255,255,0.8);
+    -webkit-box-shadow: inset 0px -2px 0px 0px rgba(255,255,255,0.8);
+    -moz-box-shadow: inset 0px -2px 0px 0px rgba(255,255,255,0.8);
+    box-shadow: inset 0px -2px 0px 0px rgba(255,255,255,0.8);
+  }
+}
+
+.oneline {
+	display: inline-block;
+}
