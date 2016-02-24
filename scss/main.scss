@@ -36,9 +36,9 @@ $brand-danger: #d9534f !default;
 
 //== Typography
 
-@import url(https://fonts.googleapis.com/css?family=Rubik:500,700,900);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,500,700,900);
 
-$font-family-sans-serif: "Rubik", Helvetica, Arial, sans-serif !default;
+$font-family-sans-serif: "Open Sans", Helvetica, Arial, sans-serif !default;
 
 $font-family-base: $font-family-sans-serif !default;
 
@@ -386,7 +386,6 @@ ol.list-group {
 		}
 	}
   #parliament-submission {
-    display: none;
     border: solid 1px rgba(0,0,0,0.2);
     background: rgba(255,255,255,0.2);
     transition: all 0.2s ease;

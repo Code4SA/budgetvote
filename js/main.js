@@ -156,7 +156,7 @@ $(document).ready(function(){
     }
 
     function sendEmail(){
-      var sendEmailSelected = $('#submit-parliament > .btn-selected').hasClass('btn-selected');
+      var sendEmailSelected = $('#submit-parliament > .btn-agree').hasClass('btn-selected');
       if (sendEmailSelected == true){
         var emailBody = $('#parliament-email').html();
         console.log(emailBody);
@@ -164,7 +164,7 @@ $(document).ready(function(){
       }
       else {
         submitSuccess();
-      }     
+      }
     }
 
     $.post("http://backchat.code4sa.org/submit/budget2016/", {processData: false, success: sendEmail, data: JSON.stringify({IncreasesOrder: increasesOrder, DecreasesOrder: decreasesOrder, ProjectsOrder: projectsOrder, UserEmail: userEmail})});
