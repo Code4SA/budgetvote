@@ -1,5 +1,4 @@
 @charset "UTF-8";
-@import url(https://fonts.googleapis.com/css?family=Rubik:500,700,900);
 /*!
  * Bootstrap v3.3.6 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.
@@ -1069,7 +1068,7 @@ html {
   -webkit-tap-highlight-color: transparent; }
 
 body {
-  font-family: "Rubik", Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.8;
   color: #000;
@@ -5186,7 +5185,7 @@ button.close {
   position: absolute;
   z-index: 1070;
   display: block;
-  font-family: "Rubik", Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;
@@ -5292,7 +5291,7 @@ button.close {
   display: none;
   max-width: 276px;
   padding: 1px;
-  font-family: "Rubik", Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;
