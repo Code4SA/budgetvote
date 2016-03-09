@@ -5822,7 +5822,6 @@ small {
   -khtml-user-select: none;
   -webkit-user-select: none;
   -o-user-select: none;
-  text-transform: uppercase;
   border-radius: 20px;
   padding: 10px 15px;
   line-height: 100%;
@@ -5899,6 +5898,9 @@ small {
 
 #intro, #intro p {
   text-align: center; }
+
+.section#download {
+  background-color: #99cc33; }
 
 .section#instructions {
   background-color: #3399cc;
